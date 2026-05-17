@@ -14,18 +14,30 @@
 
 </head>
 
-<body class="d-flex flex-column min-vh-100" data-tema="tema-dft" onload="tema()">
+<body class="d-flex flex-column min-vh-100" onload="tema()">
     
-<header class="d-flex container-fluid mb-4 text-white mt-0 justify-content-between borda" style="border-bottom: solid 1px;">
+<header class="d-flex container-fluid mb-4 mt-0 justify-content-between borda" style="border-bottom: solid 1px;">
 
     <article class="py-3 text-center">
         <a href="index.html" class="text-decoration-none"><h3>Guib's <i style="font-family: myFont;">Fórum</i></h3></a>
     </article>
 
-    <article class="p-3 text-center" id="logado">
-        <button class="btn pincel py-0 mx-2" style="height: 40px;"><img src="./resource/imagens/icons/pincel.png" style="height: 30px;"></button>
-        <button class="btn btn-success" onclick="window.location.href = 'login.html'">Login</button>
-    </article>
+    <section class="p-3 text-center" id="logado">
+        <article class="d-flex container-fluid justify-content-between">
+            <div>
+                <button class="btn pincel py-0 mx-2" style="height: 40px;" onclick="menu_tema()"><img src="./resource/imagens/icons/pincel.png" style="height: 30px;"></button>
+                <div id="menu_tema" class="d-flex align-items-center justify-content-between bg-light p-1 menu" data-aberto="false" style="border-radius: 10px; border: solid 1px black;">
+                    <button class="btn btn-outline-dark btn_tema mx-1" style="background-color: #006622;"></button>
+                    <button class="btn btn-outline-dark btn_tema mx-1" style="background-color: #ffffcc;"></button>
+                    <button class="btn btn-outline-dark btn_tema mx-1" style="background-color: #262626;"></button>
+                </div>
+            </div>
+
+            <button class="btn btn-success" onclick="window.location.href = 'login.html'">Login</button>
+
+        </article>
+        
+    </section>
 
 </header>
 

@@ -1,12 +1,47 @@
+const btn_tema = document.querySelectorAll('.menu .btn_tema');
+const menu_aberto_fechado = {
+    "true" : "false",
+    "false" : "true",
+}
+
 function tema() {
-    if (localStorage.getItem(theme)) {
-        mudar_tema(localStorage.getItem(theme));
+    if (localStorage.getItem("theme")) {
+        mudar_tema(localStorage.getItem("theme"));
     }
     else {
         mudar_tema("dft");
     }
 }
 
+function menu_tema() {
+    const div_menu = document.getElementById("menu_tema");
+    const menu_atual = div_menu.dataset.aberto;
+
+    div_menu.setAttribute("data-aberto", menu_aberto_fechado[menu_atual]);
+}
+
 function mudar_tema(e) {
     document.body.setAttribute("data-tema", "tema-" + e);
+
+    localStorage.setItem("theme", e);
 }
+
+btn_tema.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const tema_sel = e.target.style.backgroundColor;
+        var cor;
+        console.log(tema_sel);
+        
+        if (tema_sel == "rgb(0, 102, 34)") {
+            cor = "dft";
+        } else if (tema_sel == "rgb(255, 255, 204)") {
+            cor = "claro";
+        } else if (tema_sel == "rgb(38, 38, 38)") {
+            cor = "escuro";
+        }
+
+        mudar_tema(cor);
+    });
+});
+
+
