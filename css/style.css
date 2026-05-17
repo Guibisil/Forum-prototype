@@ -1,8 +1,29 @@
+body[data-tema="tema-dft"] {
+    --bg-color: #006622;
+    --txt-color: white;
+    --bd-color: #009933;
+}
+
+body[data-tema="tema-claro"] {
+    --bg-color: #ffffcc;
+    --txt-color: black;
+    --bd-color: black;
+}
+
 html, body {
     height: 100%;
-    background-color: #006622;
+    background-color: var(--bg-color);
 }
 
 p, h1, h2, h3, h4, h5, h6 {
-    color: white;
+    color: var(--txt-color);
+}
+
+.borda {
+    border-color: var(--bd-color) !important;
+}
+
+@font-face {
+  font-family: myFont;
+  src: url(../resource/Anxiety.otf);
 }
