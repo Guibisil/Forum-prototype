@@ -25,6 +25,8 @@
 
     <section class="p-3 text-center" id="logado">
         <article class="d-flex container-fluid justify-content-between">
+
+            <!--Temas-->
             <div>
                 <button class="btn pincel py-0 mx-2" style="height: 40px;" onclick="menu_tema()"><img src="./resource/imagens/icons/pincel.png" style="height: 30px;"></button>
                 <div id="menu_tema" class="d-flex align-items-center justify-content-between bg-light p-1 menu" data-aberto="false" style="border-radius: 10px; border: solid 1px black;">
@@ -34,7 +36,16 @@
                 </div>
             </div>
 
-            <button id="btn_login" class="btn btn-success" onclick="logar()">Login</button>
+            <!--Login-->
+            <div>
+                <button id="btn_login" class="btn btn-success" onclick="logar()">Login</button>
+                <div id="menu_login" class="d-flex align-items-center justify-content-between bg-light p-1 menu_l" data-login="false" style="border-radius: 10px; border: solid 1px black;">
+                    <ul>
+                        <li><a id="deslogar_menu" href="#.html" class="text-decoration-none">Detalhes</a></li>
+                        <li><a id="deslogar_menu" href="login.html" class="text-decoration-none">Sair</a></li>
+                    </ul>
+                </div>
+            </div>
         </article>
         
     </section>

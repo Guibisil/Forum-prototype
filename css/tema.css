@@ -33,6 +33,12 @@ p, h1, h2, h3, h4, h5, h6 {
     border-color: var(--bd-color) !important;
 }
 
+ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
 @font-face {
   font-family: myFont;
   src: url(../resource/Anxiety.otf);
@@ -72,5 +78,23 @@ p, h1, h2, h3, h4, h5, h6 {
     right: 85px;
     opacity: var(--opacidade, 0);
     visibility: var(--visibilidade, hidden);
+    transition: opacity 0.3s ease, visibility 0.2s ease;
+}
+
+.menu_l[data-login="false"] {
+    --opa_login: 0;
+    --vis_login: hidden;
+}
+
+.menu_l[data-login="true"] {
+    --opa_login: 1;
+    --vis_login: visible;
+}
+
+.menu_l {
+    position: absolute;
+    right: 35px;
+    opacity: var(--opa_login, 0);
+    visibility: var(--vis_login, hidden);
     transition: opacity 0.3s ease, visibility 0.2s ease;
 }

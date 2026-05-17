@@ -11,11 +11,3 @@ function carregar() {
     } 
 }
 
-function logar() {
-    if (sessionStorage.getItem('user')) {
-        alert("ababa");
-    } else {
-        window.location.href = 'login.html';
-    }
-    
-}

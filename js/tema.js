@@ -18,6 +18,7 @@ function menu_tema() {
     const menu_atual = div_menu.dataset.aberto;
 
     div_menu.setAttribute("data-aberto", menu_aberto_fechado[menu_atual]);
+    document.getElementById("menu_login").setAttribute("data-login", "false");
 }
 
 function mudar_tema(e) {
@@ -44,4 +45,15 @@ btn_tema.forEach(btn => {
     });
 });
 
+function logar() {
+    if (sessionStorage.getItem('user')) {
+        const div_menu = document.getElementById("menu_login");
+        const menu_atual = div_menu.dataset.login;
 
+        div_menu.setAttribute("data-login", menu_aberto_fechado[menu_atual]);
+        document.getElementById("menu_tema").setAttribute("data-aberto", "false");
+    } else {
+        window.location.href = 'login.html';
+    }
+    
+}
