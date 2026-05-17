@@ -1,5 +1,3 @@
-sessionStorage.removeItem('user');
-
 const btn_login = document.getElementById("btn_login");
 
 function carregar() {

@@ -40,11 +40,11 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .pincel {
     border-radius: 30px;
+    transition: background-color 0.6s ease;
 }
 
 .pincel:hover {
     background-color: var(--pc-color);
-    transition: 0.3s;
 }
 
 .btn_tema {
@@ -56,10 +56,12 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .menu[data-aberto="false"] {
+    --opacidade: 0;
     --visibilidade: hidden;
 }
 
 .menu[data-aberto="true"] {
+    --opacidade: 1;
     --visibilidade: visible;
 }
 
@@ -68,5 +70,7 @@ p, h1, h2, h3, h4, h5, h6 {
     height: 38px;
     width: 122px;
     right: 85px;
-    visibility: var(--visibilidade);  
+    opacity: var(--opacidade, 0);
+    visibility: var(--visibilidade, hidden);
+    transition: opacity 0.3s ease, visibility 0.2s ease;
 }
