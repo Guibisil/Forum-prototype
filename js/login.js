@@ -3,6 +3,9 @@ const senha = document.getElementById('senha');
 const msg = document.getElementById('mensagem');
 
 function carregar() {
+    const menu_tema = document.getElementById("menu_tema");
+    menu_tema.style.right = '18px';
+
     if (sessionStorage.getItem('user')) {
         window.location.href = 'index.html'
     } 
