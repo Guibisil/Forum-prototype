@@ -10,6 +10,12 @@ body[data-tema="tema-claro"] {
     --bd-color: black;
 }
 
+body[data-tema="tema-escuro"] {
+    --bg-color: #262626;
+    --txt-color: aliceblue;
+    --bd-color: aliceblue;
+}
+
 html, body {
     height: 100%;
     background-color: var(--bg-color);
@@ -26,4 +32,13 @@ p, h1, h2, h3, h4, h5, h6 {
 @font-face {
   font-family: myFont;
   src: url(../resource/Anxiety.otf);
+}
+
+.pincel {
+    border-radius: 30px;
+}
+
+.pincel:hover {
+    background-color: var(--bd-color);
+    transition: 0.3s;
 }
