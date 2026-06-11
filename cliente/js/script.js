@@ -10,4 +10,3 @@ function carregar() {
         menu_tema.style.right = '60px';
     } 
 }
-

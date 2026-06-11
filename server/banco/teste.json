@@ -1,0 +1,16 @@
+{
+    "novo_teste": [
+        {
+            "a": 1,
+            "b": "abacaxi"
+        },
+        {
+            "a": 2,
+            "b": "bergamota"
+        },
+        {
+            "a": 3,
+            "b": "caqui"
+        }
+    ]
+}
