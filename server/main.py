@@ -1,15 +1,11 @@
 from flask import Flask,  request, jsonify
+from flask_cors import CORS
 import json
 import os
 
 app = Flask(__name__)
 JSON_FILE = 'banco/teste.json'
-json_teste = {"a": 3, "b": "caqui"}
-
-@app.route("/")
-def home():
-    return "teste"
-
+CORS(app)
 
 @app.route('/dados', methods=['GET'])
 def obter_dados():
@@ -24,6 +20,7 @@ def obter_dados():
 @app.route('/adicionar-item', methods=['POST'])
 def adicionar_item():
 
+    json_teste = request.get_json()
     if not json_teste:
         return jsonify({"erro": "Nenhum dado fornecido"}), 400
 
@@ -36,7 +33,6 @@ def adicionar_item():
 
         dados["novo_teste"].append(json_teste)
 
-        # 4. Salvar o arquivo atualizado
         with open(JSON_FILE, 'w', encoding='utf-8') as f:
             json.dump(dados, f, indent=4, ensure_ascii=False)
 
