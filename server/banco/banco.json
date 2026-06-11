@@ -1,0 +1,18 @@
+{
+    "usuarios": [
+        {
+            "id": 1,
+            "nome": "usuário_teste",
+            "senha": "senha123",
+            "email": "teste@example.com"
+        }
+    ],
+    "posts": [
+        {
+            "id": 1,
+            "titulo": "Primeiro Post",
+            "conteudo": "Este é o conteúdo do primeiro post.",
+            "autor_id": 1
+        }
+    ]
+}

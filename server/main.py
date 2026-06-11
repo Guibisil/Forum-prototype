@@ -4,39 +4,72 @@ import json
 import os
 
 app = Flask(__name__)
-JSON_FILE = 'banco/teste.json'
+JSON_FILE = 'banco/banco.json'
 CORS(app)
 
-@app.route('/dados', methods=['GET'])
-def obter_dados():
+
+# Usuários
+@app.route('/dados-usuarios', methods=['GET'])
+def dados_usuarios():
     if not os.path.exists(JSON_FILE):
         return jsonify({"erro": "Arquivo não encontrado"}), 404
         
     with open(JSON_FILE, 'r', encoding='utf-8') as f:
         dados = json.load(f)
-    return jsonify(dados)
+        usuarios = dados["usuarios"]
+    return jsonify(usuarios)
 
 
-@app.route('/adicionar-item', methods=['POST'])
-def adicionar_item():
+@app.route('/adicionar-user', methods=['POST'])
+def adicionar_user():
 
     json_teste = request.get_json()
     if not json_teste:
         return jsonify({"erro": "Nenhum dado fornecido"}), 400
 
     try:
-        if os.path.exists(JSON_FILE):
-            with open(JSON_FILE, 'r', encoding='utf-8') as f:
-                dados = json.load(f)
-        else:
-            dados = {"novo_teste": []}
+        with open(JSON_FILE, 'r', encoding='utf-8') as f:
+            dados = json.load(f)
 
-        dados["novo_teste"].append(json_teste)
+        dados["usuarios"].append(json_teste)
 
         with open(JSON_FILE, 'w', encoding='utf-8') as f:
             json.dump(dados, f, indent=4, ensure_ascii=False)
 
-        return jsonify({"mensagem": "Item adicionado com sucesso!", "dados": dados}), 200
+        return jsonify({"mensagem": "Usuário adicionado com sucesso!", "dados": dados["usuarios"]}), 200
+
+    except Exception as e:
+        return jsonify({"erro": f"Erro ao processar: {str(e)}"}), 500
+
+# Posts
+@app.route('/dados-posts', methods=['GET'])
+def dados_posts():
+    if not os.path.exists(JSON_FILE):
+        return jsonify({"erro": "Arquivo não encontrado"}), 404
+
+    with open(JSON_FILE, 'r', encoding='utf-8') as f:
+        dados = json.load(f)
+        posts = dados["posts"]
+    return jsonify(posts)
+
+
+@app.route('/adicionar-post', methods=['POST'])
+def adicionar_post():
+
+    json_teste = request.get_json()
+    if not json_teste:
+        return jsonify({"erro": "Nenhum dado fornecido"}), 400
+
+    try:
+        with open(JSON_FILE, 'r', encoding='utf-8') as f:
+            dados = json.load(f)
+
+        dados["posts"].append(json_teste)
+
+        with open(JSON_FILE, 'w', encoding='utf-8') as f:
+            json.dump(dados, f, indent=4, ensure_ascii=False)
+
+        return jsonify({"mensagem": "post adicionado com sucesso!", "dados": dados["posts"]}), 200
 
     except Exception as e:
         return jsonify({"erro": f"Erro ao processar: {str(e)}"}), 500

@@ -11,13 +11,23 @@ function carregar() {
     } 
 }
 
-function validar() {
-    if (senha.value == 12345 && usuario.value == 'teste123') {
-        sessionStorage.setItem('user', 'logado');
-        window.location.href = 'index.html'
+async function validar() {
+    try {
+        const resposta = await fetch('http://127.0.0.1:5000/dados-usuarios');
+        const usuarios = await resposta.json();
         
-    } else {
-        msg.innerHTML = `<h6>Usuário ou Senha Incorretos</h6>`
-        
+        usuarios.forEach(u => {
+            if (senha.value == u.senha && usuario.value == u.nome) {
+                sessionStorage.setItem('user', 'logado');
+                window.location.href = 'index.html';
+            }
+        });
+
+        if (!sessionStorage.getItem('user')) {
+            msg.innerHTML = `<h6>Usuário ou Senha Incorretos</h6>`;
+        }
+
+    } catch (erro) {
+        console.error("Erro ao buscar dados:", erro);
     }
 }

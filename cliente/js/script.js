@@ -42,5 +42,3 @@ async function teste_get() {
         console.error("Erro ao buscar dados:", erro);
     }
 }
-
-teste_get();
