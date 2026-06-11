@@ -1,5 +1,6 @@
 const usuario = document.getElementById('user');
 const senha = document.getElementById('senha');
+const email = document.getElementById('email');
 const msg = document.getElementById('mensagem');
 
 function carregar() {
@@ -30,4 +31,48 @@ async function validar() {
     } catch (erro) {
         console.error("Erro ao buscar dados:", erro);
     }
+}
+
+function registrar() {
+    window.location.href = 'registrar.html';
+}
+
+async function novo_user() {
+
+    if (validacao_dados()) {
+        const novo_usuario = {"nome": usuario.value, "senha": senha.value, "email": email.value}
+        
+        try {
+            const resposta = await fetch('http://127.0.0.1:5000/adicionar-user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(novo_usuario)
+            });
+
+            const resultado = await resposta.json();
+
+            window.location.href = 'index.html';
+            
+        } catch (erro) {
+            console.error("Erro ao enviar dados:", erro);
+        } 
+    }
+    
+}
+
+function validacao_dados() {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (usuario.value == "" || usuario.value == null) {
+        msg.innerHTML = `<h6>Nome de usuário inválido</h6>`;
+    } else if (senha.value == "" || senha.value == null) {
+        msg.innerHTML = `<h6>Senha inválida</h6>`;
+    } else if (!regex.test(email.value)) {
+        msg.innerHTML = `<h6>Email inválido</h6>`;
+    } else {
+        return true;
+    }
+
+    return false;
 }

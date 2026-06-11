@@ -23,15 +23,18 @@ def dados_usuarios():
 @app.route('/adicionar-user', methods=['POST'])
 def adicionar_user():
 
-    json_teste = request.get_json()
-    if not json_teste:
+    novo_usuario = request.get_json()
+    if not novo_usuario:
         return jsonify({"erro": "Nenhum dado fornecido"}), 400
 
     try:
         with open(JSON_FILE, 'r', encoding='utf-8') as f:
             dados = json.load(f)
+        
+        novo_id = len(dados["usuarios"]) + 1
+        novo_usuario["id"] = novo_id
 
-        dados["usuarios"].append(json_teste)
+        dados["usuarios"].append(novo_usuario)
 
         with open(JSON_FILE, 'w', encoding='utf-8') as f:
             json.dump(dados, f, indent=4, ensure_ascii=False)

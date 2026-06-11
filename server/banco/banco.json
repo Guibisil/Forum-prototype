@@ -1,10 +1,10 @@
 {
     "usuarios": [
         {
-            "id": 1,
             "nome": "usuário_teste",
             "senha": "senha123",
-            "email": "teste@example.com"
+            "email": "teste@example.com",
+            "id": 1
         }
     ],
     "posts": [
