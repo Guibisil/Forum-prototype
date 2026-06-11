@@ -30,3 +30,17 @@ async function json() {
         console.error("Erro ao enviar dados:", erro);
     }
 }
+
+async function teste_get() {
+    try {
+        const resposta = await fetch('http://127.0.0.1:5000/dados');
+        
+        const dados = await resposta.json();
+        
+        console.log(dados);
+    } catch (erro) {
+        console.error("Erro ao buscar dados:", erro);
+    }
+}
+
+teste_get();
