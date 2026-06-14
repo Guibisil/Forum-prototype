@@ -31,7 +31,6 @@ btn_tema.forEach(btn => {
     btn.addEventListener('click', (e) => {
         const tema_sel = e.target.style.backgroundColor;
         var cor;
-        console.log(tema_sel);
         
         if (tema_sel == "rgb(0, 102, 34)") {
             cor = "dft";

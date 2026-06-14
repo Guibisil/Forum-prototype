@@ -37,7 +37,7 @@ def adicionar_user():
             novo_id = 1
 
         novo_usuario["id"] = novo_id
-        
+
         dados["usuarios"].append(novo_usuario)
 
         with open(JSON_FILE, 'w', encoding='utf-8') as f:
@@ -81,5 +81,22 @@ def adicionar_post():
     except Exception as e:
         return jsonify({"erro": f"Erro ao processar: {str(e)}"}), 500
 
+
+@app.route('/dados-posts/<int:id_post>', methods=['GET'])
+def post_completo(id_post):
+    if not os.path.exists(JSON_FILE):
+        return jsonify({"erro": "Arquivo não encontrado"}), 404
+
+    with open(JSON_FILE, 'r', encoding='utf-8') as f:
+        dados = json.load(f)
+
+    post = next((p for p in dados["posts"] if p.get("id") == id_post), None)
+
+    if not post:
+        return jsonify({"erro": "Post não encontrado"}), 404
+
+    return jsonify(post)
+
+# start
 if __name__ == "__main__":
     app.run(debug=True)
