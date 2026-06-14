@@ -2,6 +2,7 @@ const btn_login = document.getElementById("btn_login");
 const usuario_menu = document.querySelectorAll(".usuario li");
 
 function carregar() {
+
     if (sessionStorage.getItem('user')) {
         btn_login.innerHTML = '<img src="./resource/imagens/icons/user.png" style="height: 40px;"/>';
         btn_login.classList.remove('btn-success');
@@ -20,18 +21,19 @@ async function posts() {
         const dados = await resposta.json();
 
         dados.map((post) => {
-            area_posts.innerHTML = `<article id="post_${post.id}" class="container my-3 p-3 borda" style="border: solid 1px; border-radius: 10px;">
-            <div>
-                <p><b style="font-size: larger;">${post.titulo}</b><i style="font-size:smaller">
-                 - ${post.hora}</i></p>
-            </div>
-            <div>
-                <p>${post.conteudo}</p>
-            </div>
-        </article>` + area_posts.innerHTML;
+            let novo_post = `<article id="post_${post.id}" class="container my-3 p-3 borda" style="border: solid 1px; border-radius: 10px;">
+                <div>
+                    <p><b class="titulo">${post.titulo}</b><i style="font-size:smaller"> - ${post.hora}</i></p>
+                </div>
+                <div>
+                    <p>${post.conteudo}</p>
+                </div>
+            </article>`;
+
+            area_posts.insertAdjacentHTML('afterbegin', novo_post);
         });
     } catch (erro) {
-        console.error("Erro ao buscar dados:", erro);
+        alert("Erro ao buscar dados:", erro);
     }
 }
 
@@ -50,7 +52,21 @@ usuario_menu.forEach(item => {
     })
 });
 
+area_posts.addEventListener('click', (e) => {
+    
+    if (e.target.classList.contains('titulo')) {
+        const titulo = e.target;
+        const tag_article = titulo.closest('article');
+        
+        if (tag_article) {
+            const id_post = tag_article.id.split("_")[1];
+            window.location.href = `post.html?id=${id_post}`;
+        }
+    }
+});
 
+
+//funções de teste
 async function json() {
     const teste_banco = {a:4, b:"damasco"};
 

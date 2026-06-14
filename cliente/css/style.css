@@ -1,0 +1,10 @@
+.titulo {
+    font-size: larger;
+    border-bottom: solid 0px transparent;
+    transition: border-bottom 0.3s;
+}
+
+.titulo:hover {
+    border-bottom: solid 1px;
+    cursor: pointer;
+}
