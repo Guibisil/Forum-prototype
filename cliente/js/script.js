@@ -1,4 +1,5 @@
 const btn_login = document.getElementById("btn_login");
+const usuario_menu = document.querySelectorAll(".usuario li");
 
 function carregar() {
     if (sessionStorage.getItem('user')) {
@@ -9,7 +10,46 @@ function carregar() {
         const menu_tema = document.getElementById("menu_tema");
         menu_tema.style.right = '60px';
     } 
+
+    posts();
 }
+
+async function posts() {
+    try {
+        const resposta = await fetch('http://127.0.0.1:5000/dados-posts');
+        const dados = await resposta.json();
+
+        dados.map((post) => {
+            area_posts.innerHTML = `<article id="post_${post.id}" class="container my-3 p-3 borda" style="border: solid 1px; border-radius: 10px;">
+            <div>
+                <p><b style="font-size: larger;">${post.titulo}</b><i style="font-size:smaller">
+                 - ${post.hora}</i></p>
+            </div>
+            <div>
+                <p>${post.conteudo}</p>
+            </div>
+        </article>` + area_posts.innerHTML;
+        });
+    } catch (erro) {
+        console.error("Erro ao buscar dados:", erro);
+    }
+}
+
+usuario_menu.forEach(item => {
+    item.addEventListener('click', () => {
+
+        console.log(item.id);
+
+        if (item.id === 'detalhes_user') {
+            window.location.href = 'detalhes.html';
+        } else if (item.id === 'deslogar_user') {
+            sessionStorage.removeItem('user');
+            window.location.reload();
+        }
+
+    })
+});
+
 
 async function json() {
     const teste_banco = {a:4, b:"damasco"};

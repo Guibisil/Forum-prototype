@@ -93,8 +93,12 @@ ul {
 
 .menu_l {
     position: absolute;
-    right: 35px;
+    right: 26px;
     opacity: var(--opa_login, 0);
     visibility: var(--vis_login, hidden);
     transition: opacity 0.3s ease, visibility 0.2s ease;
+}
+
+#detalhes_user, #deslogar_user {
+    cursor: pointer;
 }

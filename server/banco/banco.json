@@ -11,12 +11,6 @@
             "senha": "ababa",
             "email": "ababa@gmail.com",
             "id": 2
-        },
-        {
-            "nome": "ddfdf",
-            "senha": "123",
-            "email": "asda@gmail.com",
-            "id": 3
         }
     ],
     "posts": [
@@ -24,6 +18,13 @@
             "id": 1,
             "titulo": "Primeiro Post",
             "conteudo": "Este é o conteúdo do primeiro post.",
+            "hora": "13/06/2026, 13:00:00",
+            "autor_id": 1
+        }, {
+            "id": 2,
+            "titulo": "Segundo Post",
+            "conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris semper magna eu dolor consectetur iaculis. Duis posuere gravida ornare. Quisque lobortis lacinia augue hendrerit pharetra. Donec vel porta diam. Mauris maximus ipsum eget nunc ultrices maximus ut consectetur augue. Donec ut ex libero. Morbi nulla nibh, posuere ut venenatis sed, suscipit id risus. Morbi feugiat vestibulum dolor, non ornare libero maximus ut. Vestibulum luctus sit amet libero ut finibus.",
+            "hora": "14/06/2026, 14:30:00",
             "autor_id": 1
         }
     ]

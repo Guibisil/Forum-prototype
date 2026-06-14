@@ -38,13 +38,7 @@
 
             <!--Login-->
             <div>
-                <button id="btn_login" class="btn btn-success" onclick="logar()">Login</button>
-                <div id="menu_login" class="d-flex align-items-center justify-content-between bg-light p-1 menu_l" data-login="false" style="border-radius: 10px; border: solid 1px black;">
-                    <ul class="usuario">
-                        <li id="detalhes_user"><p class="text-black m-0">Detalhes</p></li>
-                        <li id="deslogar_user"><p class="text-black m-0">Sair</p></li>
-                    </ul>
-                </div>
+                <button id="btn_login" class="btn btn-success" onclick="logout()">Logout</button>
             </div>
         </article>
         
@@ -54,17 +48,7 @@
 
 <main class="flex-grow-1">
     
-    <!--Barra de pesquisa-->
-    <section class="mb-4 container px-5 d-flex align-items-center justify-content-center">
-        <div class="input-group mb-3 mt-3" style="max-width: 500px;">
-            <input type="text" class="form-control" placeholder="Procurar">
-            <button class="btn btn-success" type="button"><img src="./resource/imagens/icons/busca.png" style="height: 24px;"></button>
-        </div>
-    </section>
-
-    <!--Posts-->
-    <section class="container align-items-center mb-5" id="area_posts">
-    </section>
+    
 
 </main>
 
@@ -98,7 +82,7 @@
 
 </footer>
 
-<script src="js/script.js"></script>
+<script src="js/usuario.js"></script>
 <script src="js/tema.js"></script>
 
 </body>
