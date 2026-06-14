@@ -4,7 +4,7 @@ import json
 import os
 
 app = Flask(__name__)
-JSON_FILE = 'banco/banco.json'
+JSON_FILE = 'server/banco/banco.json'
 CORS(app)
 
 
@@ -31,9 +31,13 @@ def adicionar_user():
         with open(JSON_FILE, 'r', encoding='utf-8') as f:
             dados = json.load(f)
         
-        novo_id = len(dados["usuarios"]) + 1
-        novo_usuario["id"] = novo_id
+        if dados["usuarios"]:
+            novo_id = max(user.get("id", 0) for user in dados["usuarios"]) + 1
+        else:
+            novo_id = 1
 
+        novo_usuario["id"] = novo_id
+        
         dados["usuarios"].append(novo_usuario)
 
         with open(JSON_FILE, 'w', encoding='utf-8') as f:

@@ -37,7 +37,8 @@ function registrar() {
     window.location.href = 'registrar.html';
 }
 
-async function novo_user() {
+async function novo_user(e) {
+    e.preventDefault();
 
     if (validacao_dados()) {
         const novo_usuario = {"nome": usuario.value, "senha": senha.value, "email": email.value}
@@ -51,8 +52,7 @@ async function novo_user() {
                 body: JSON.stringify(novo_usuario)
             });
 
-            const resultado = await resposta.json();
-
+            sessionStorage.setItem('user', 'logado');
             window.location.href = 'index.html';
             
         } catch (erro) {
@@ -63,13 +63,17 @@ async function novo_user() {
 }
 
 function validacao_dados() {
+    const conf_senha = document.getElementById('conf_senha');
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (usuario.value == "" || usuario.value == null) {
         msg.innerHTML = `<h6>Nome de usuário inválido</h6>`;
     } else if (senha.value == "" || senha.value == null) {
         msg.innerHTML = `<h6>Senha inválida</h6>`;
     } else if (!regex.test(email.value)) {
         msg.innerHTML = `<h6>Email inválido</h6>`;
+    } else if (conf_senha.value != senha.value) {
+        msg.innerHTML = `<h6>As senhas não coincidem</h6>`;
     } else {
         return true;
     }

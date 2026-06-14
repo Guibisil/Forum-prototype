@@ -42,7 +42,7 @@
     
 <div class="row align-items-center justify-content-center" style="margin: 0px;">
 
-        <section class="col-md-4 container border rounded-3 borda mt-3">   
+        <section class="col-md-4 container border rounded-3 borda mt-3 mb-5">   
 
             <article class="text-center p-3">
                 <h4>Registro</h4>
@@ -65,10 +65,15 @@
                     <input type="password" class="form-control mx-auto senha" id="senha" placeholder="Senha">
                 </div>
 
+                <div class="col-sm-12 mb-3 text-start">
+                    <label for="conf_senha" class="form-label text-white mx-1">Confirmar Senha:</label>
+                    <input type="password" class="form-control mx-auto senha" id="conf_senha" placeholder="Senha">
+                </div>
+
             </article>
 
             <article class="text-center p-3 mx-3 mb-2">
-                <button type="button" class="btn btn-success mx-2" onclick="novo_user()">Registrar</button>
+                <button type="button" class="btn btn-success mx-2" onclick="novo_user(event)">Registrar</button>
             </article>
 
             <article class="text-center text-danger" id="mensagem"></article>

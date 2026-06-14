@@ -5,6 +5,18 @@
             "senha": "senha123",
             "email": "teste@example.com",
             "id": 1
+        },
+        {
+            "nome": "ababa",
+            "senha": "ababa",
+            "email": "ababa@gmail.com",
+            "id": 2
+        },
+        {
+            "nome": "ddfdf",
+            "senha": "123",
+            "email": "asda@gmail.com",
+            "id": 3
         }
     ],
     "posts": [
