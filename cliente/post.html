@@ -64,12 +64,39 @@
         <p id="conteudo-post" class="mb-4">...</p>
 
         <article>
-            <button class="btn btn-outline-primary" id="criar_post">Responder</button>
+            <button class="btn btn-outline-primary" id="criar_post" data-bs-toggle="modal" data-bs-target="#modal_res">
+                Rsponder
+            </button>
         </article>
 
         <article class="cointainer mt-3 px-4 borda py-2" style="border-top: solid 1px;" id="comentarios">
         </article>
     </section>
+
+    <!--modal-->
+    <div class="modal mt-5" id="modal_res">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title text-black">Resposta</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <label for="comentario">Comentário:</label>
+                <textarea class="form-control" rows="5" id="comentario" name="text" placeholder="Seu comentário..."></textarea>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="enviar_res" onclick="enviar_resposta()">
+                    Enviar
+                </button>
+            </div>
+
+            </div>
+        </div>
+    </div>
 
 </main>
 

@@ -11,6 +11,12 @@
             "senha": "123",
             "email": "teste2@example.com",
             "id": 2
+        },
+        {
+            "nome": "ababa",
+            "senha": "ababa",
+            "email": "ababa@gmail.com",
+            "id": 3
         }
     ],
     "posts": [
@@ -25,19 +31,37 @@
                     "id": 1,
                     "conteudo": "Exemplo de comentário.",
                     "autor_nome": "usuário_teste"
-                }, {
+                },
+                {
                     "id": 2,
                     "conteudo": "Outro comentário de exemplo.",
                     "autor_nome": "usuário_teste2"
                 }
             ]
-        }, {
+        },
+        {
             "id": 2,
             "titulo": "Teste dois",
             "conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris semper magna eu dolor consectetur iaculis. Duis posuere gravida ornare. Quisque lobortis lacinia augue hendrerit pharetra. Donec vel porta diam. Mauris maximus ipsum eget nunc ultrices maximus ut consectetur augue. Donec ut ex libero. Morbi nulla nibh, posuere ut venenatis sed, suscipit id risus. Morbi feugiat vestibulum dolor, non ornare libero maximus ut. Vestibulum luctus sit amet libero ut finibus.",
             "hora": "14/06/2026, 14:30:00",
             "autor_id": 2,
-            "comentarios": []
+            "comentarios": [
+                {
+                    "conteudo": "asdasd",
+                    "autor_nome": null,
+                    "id": 1
+                },
+                {
+                    "conteudo": "novo comentarios",
+                    "autor_nome": "ababa",
+                    "id": 2
+                },
+                {
+                    "conteudo": "teste\ndois",
+                    "autor_nome": "ababa",
+                    "id": 3
+                }
+            ]
         }
     ]
 }

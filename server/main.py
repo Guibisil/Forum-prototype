@@ -114,6 +114,42 @@ def post_completo(id_post):
 
     return jsonify(post)
 
+
+@app.route('/adicionar-post/<int:id_post>', methods=['POST'])
+def adicionar_comentario(id_post):
+
+    novo_comen = request.get_json()
+    if not novo_comen:
+        return jsonify({"erro": "Nenhum dado fornecido"}), 400
+
+    try:
+        with open(JSON_FILE, 'r', encoding='utf-8') as f:
+            dados = json.load(f)
+
+        pots_espec = next((p for p in dados["posts"] if p.get("id") == id_post), None)
+        
+        if "comentarios" not in pots_espec:
+            pots_espec["comentarios"] = []
+
+        
+        if pots_espec["comentarios"]:
+            novo_id = max(com.get("id", 0) for com in pots_espec["comentarios"]) + 1
+        else:
+            novo_id = 1
+
+        novo_comen["id"] = novo_id
+
+        pots_espec["comentarios"].append(novo_comen)
+
+        with open(JSON_FILE, 'w', encoding='utf-8') as f:
+            json.dump(dados, f, indent=4, ensure_ascii=False)
+
+        return jsonify({"mensagem": "post adicionado com sucesso!", "dados": dados["posts"]}), 200
+
+    except Exception as e:
+        return jsonify({"erro": f"Erro ao processar: {str(e)}"}), 500
+
+
 # start
 if __name__ == "__main__":
     app.run(debug=True)

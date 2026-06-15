@@ -20,6 +20,8 @@ async function validar() {
         usuarios.forEach(u => {
             if (senha.value == u.senha && usuario.value == u.nome) {
                 sessionStorage.setItem('user', 'logado');
+                sessionStorage.setItem('user_id', u.id);
+                sessionStorage.setItem('user_name', u.nome);
                 window.location.href = 'index.html';
             }
         });

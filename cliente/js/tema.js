@@ -56,3 +56,19 @@ function logar() {
     }
     
 }
+
+const usuario_menu = document.querySelectorAll(".usuario li");
+usuario_menu.forEach(item => {
+    item.addEventListener('click', () => {
+
+        console.log(item.id);
+
+        if (item.id === 'detalhes_user') {
+            window.location.href = 'detalhes.html';
+        } else if (item.id === 'deslogar_user') {
+            sessionStorage.removeItem('user');
+            window.location.reload();
+        }
+
+    })
+});

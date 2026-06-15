@@ -1,5 +1,4 @@
 const btn_login = document.getElementById("btn_login");
-const usuario_menu = document.querySelectorAll(".usuario li");
 
 function carregar() {
 
@@ -37,20 +36,6 @@ async function posts() {
     }
 }
 
-usuario_menu.forEach(item => {
-    item.addEventListener('click', () => {
-
-        console.log(item.id);
-
-        if (item.id === 'detalhes_user') {
-            window.location.href = 'detalhes.html';
-        } else if (item.id === 'deslogar_user') {
-            sessionStorage.removeItem('user');
-            window.location.reload();
-        }
-
-    })
-});
 
 area_posts.addEventListener('click', (e) => {
     
