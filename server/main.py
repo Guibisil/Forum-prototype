@@ -49,6 +49,26 @@ def adicionar_user():
         return jsonify({"erro": f"Erro ao processar: {str(e)}"}), 500
 
 
+@app.route('/remover-user/<int:id_user>', methods=['DELETE'])
+def remover_user(id_user):
+
+    try:
+        with open(JSON_FILE, 'r', encoding='utf-8') as f:
+            dados = json.load(f)
+        
+        usuario_a_ser_deletado = next((u for u in dados["usuarios"] if u.get("id") == id_user), None)
+
+        dados["usuarios"].remove(usuario_a_ser_deletado)
+
+        with open(JSON_FILE, 'w', encoding='utf-8') as f:
+            json.dump(dados, f, indent=4, ensure_ascii=False)
+
+        return jsonify({"mensagem": "Usuário removido com sucesso!", "dados": dados["usuarios"]}), 200
+
+    except Exception as e:
+        return jsonify({"erro": f"Erro ao processar: {str(e)}"}), 500
+
+
 @app.route('/dados-usuarios/<int:id_autor>', methods=['GET'])
 def autor_completo(id_autor):
     if not os.path.exists(JSON_FILE):
@@ -118,6 +138,22 @@ def post_completo(id_post):
 
     if not post:
         return jsonify({"erro": "Post não encontrado"}), 404
+
+    return jsonify(post)
+
+
+@app.route('/posts-autor/<int:id_autor>', methods=['GET'])
+def post_autor_id(id_autor):
+    if not os.path.exists(JSON_FILE):
+        return jsonify({"erro": "Arquivo não encontrado"}), 404
+
+    with open(JSON_FILE, 'r', encoding='utf-8') as f:
+        dados = json.load(f)
+
+    post = [
+        p for p in dados["posts"] 
+        if str(p.get("autor_id")) == str(id_autor)
+    ]
 
     return jsonify(post)
 

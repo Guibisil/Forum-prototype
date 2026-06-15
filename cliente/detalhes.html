@@ -36,7 +36,7 @@
                 </div>
             </div>
 
-            <!--Login-->
+            <!--Logout-->
             <div>
                 <button id="btn_login" class="btn btn-success" onclick="logout()">Logout</button>
             </div>
@@ -48,7 +48,51 @@
 
 <main class="flex-grow-1">
     
+    <section class="container align-items-center d-flex mx-5 px-5 pb-4 justify-content-between borda" style="border-bottom: solid 1px;">
+        <article class="row">
+            <div class="col-auto p-0">
+                <img class="col-auto p-1" src="./resource/imagens/icons/user.png" style="height: 80px;"/>
+            </div>
+            <div class="col-auto m-0 py-2 align-items-center">
+                <h4 id="nome_user">...</h4>
+                <h6 id="email_user">...</h6>
+            </div>
+        </article>
+
+        <article class="align-self-end">
+            <button class="btn btn-link mb-1" style="color: red;" data-bs-toggle="modal" data-bs-target="#modal_delete">
+                Excluir conta
+            </button>
+        </article>
+
+    </section>
+
+    <!--Posts-->
+    <section class="container align-items-center mx-5 px-5 mt-4 justify-content-center" id="area_user_post">
+    </section>
     
+    <!--modal-->
+    <div class="modal mt-5" id="modal_delete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-body text-center justify-content-center">
+                    <div class="mb-2">
+                        <h4 class="text-black">Você tem certeza que quer deletar seu usuário?</h4>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-outline-primary mx-2" data-bs-dismiss="modal">
+                            Não
+                        </button>
+                        <button type="button" class="btn btn-outline-danger mx-2" id="del_user">
+                            Sim
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 </main>
 

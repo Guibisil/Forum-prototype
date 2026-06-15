@@ -67,6 +67,8 @@ usuario_menu.forEach(item => {
             window.location.href = 'detalhes.html';
         } else if (item.id === 'deslogar_user') {
             sessionStorage.removeItem('user');
+            sessionStorage.removeItem('user_id');
+            sessionStorage.removeItem('user_name');
             window.location.reload();
         }
 

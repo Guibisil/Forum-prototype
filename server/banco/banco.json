@@ -11,12 +11,6 @@
             "senha": "123",
             "email": "teste2@example.com",
             "id": 2
-        },
-        {
-            "nome": "ababa",
-            "senha": "ababa",
-            "email": "ababa@gmail.com",
-            "id": 3
         }
     ],
     "posts": [
@@ -62,6 +56,13 @@
                     "id": 3
                 }
             ]
+        },
+        {
+            "titulo": "Eu criei um post agora",
+            "conteudo": "agora é dia 15 às 18:39",
+            "hora": "15/06/2026, 18:39",
+            "autor_id": "3",
+            "id": 3
         }
     ]
 }

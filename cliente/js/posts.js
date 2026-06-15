@@ -33,7 +33,12 @@ async function info_post() {
         const resposta_autor = await fetch(`http://127.0.0.1:5000/dados-usuarios/${post.autor_id}`);
         const autor = await resposta_autor.json();
 
-        document.getElementById("autor-post").textContent = autor.nome;
+        if (autor.nome == undefined) {
+            document.getElementById("autor-post").innerHTML = '<i>usuário excluído</i>' 
+        } else {
+            document.getElementById("autor-post").textContent = autor.nome;
+        }
+        
         document.getElementById("titulo-post").textContent = post.titulo;
         document.getElementById("conteudo-post").textContent = post.conteudo;
 
