@@ -80,15 +80,22 @@ def dados_posts():
 @app.route('/adicionar-post', methods=['POST'])
 def adicionar_post():
 
-    json_teste = request.get_json()
-    if not json_teste:
+    novo_post = request.get_json()
+    if not novo_post:
         return jsonify({"erro": "Nenhum dado fornecido"}), 400
 
     try:
         with open(JSON_FILE, 'r', encoding='utf-8') as f:
             dados = json.load(f)
 
-        dados["posts"].append(json_teste)
+        if dados["posts"]:
+            novo_id = max(com.get("id", 0) for com in dados["posts"]) + 1
+        else:
+            novo_id = 1
+
+        novo_post["id"] = novo_id
+
+        dados["posts"].append(novo_post)
 
         with open(JSON_FILE, 'w', encoding='utf-8') as f:
             json.dump(dados, f, indent=4, ensure_ascii=False)

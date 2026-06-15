@@ -24,7 +24,7 @@
             "id": 1,
             "titulo": "Primeiro Post",
             "conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            "hora": "13/06/2026, 13:00:00",
+            "hora": "13/06/2026, 13:00",
             "autor_id": 1,
             "comentarios": [
                 {
@@ -43,7 +43,7 @@
             "id": 2,
             "titulo": "Teste dois",
             "conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris semper magna eu dolor consectetur iaculis. Duis posuere gravida ornare. Quisque lobortis lacinia augue hendrerit pharetra. Donec vel porta diam. Mauris maximus ipsum eget nunc ultrices maximus ut consectetur augue. Donec ut ex libero. Morbi nulla nibh, posuere ut venenatis sed, suscipit id risus. Morbi feugiat vestibulum dolor, non ornare libero maximus ut. Vestibulum luctus sit amet libero ut finibus.",
-            "hora": "14/06/2026, 14:30:00",
+            "hora": "14/06/2026, 14:30",
             "autor_id": 2,
             "comentarios": [
                 {

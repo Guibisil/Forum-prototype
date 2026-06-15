@@ -1,14 +1,13 @@
-const novo = document.getElementById("criar_post");
-const envio_res = document.getElementById("envio_res");
+const novo_post = document.getElementById('criar_post');
 
-novo.addEventListener("click", (e) => {
+novo_post.addEventListener('click', (e) => {
     e.preventDefault();
     esta_logado();
 });
 
-function enviar_resposta() {
+function enviar_post() {
     if (esta_logado()) {
-        criar_comentario();
+        criar_post();
     }
 }
 
@@ -22,22 +21,23 @@ function esta_logado() {
     }
 }
 
-async function criar_comentario() {
-    const comentario = document.getElementById("comentario").value;
-    const user_name = sessionStorage.getItem('user_name')
+async function criar_post() {
+    const corpo = document.getElementById('corpo').value;
+    const titulo = document.getElementById('titulo_post').value;
+    const user_id = sessionStorage.getItem('user_id');
 
-    const parametro = new URLSearchParams(window.location.search);
-    const id_post = parametro.get('id');
+    const data = new Date();
+    const hora = data.toLocaleDateString('pt-BR', {hour: '2-digit', minute: '2-digit'});
 
-    let obj_comen = {"conteudo": comentario, "autor_nome": user_name}
+    let obj_post = {"titulo": titulo, "conteudo": corpo, "hora": hora, "autor_id": user_id}
 
     try {
-        const resposta = await fetch(`http://127.0.0.1:5000/adicionar-post/${id_post}`, {
+        const resposta = await fetch(`http://127.0.0.1:5000/adicionar-post`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(obj_comen)
+            body: JSON.stringify(obj_post)
         });
 
         const resultado = await resposta.json();
@@ -46,5 +46,5 @@ async function criar_comentario() {
     } catch (erro) {
         console.error("Erro ao enviar dados:", erro);
     }
+    
 }
-

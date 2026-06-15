@@ -37,12 +37,11 @@ async function info_post() {
         document.getElementById("titulo-post").textContent = post.titulo;
         document.getElementById("conteudo-post").textContent = post.conteudo;
 
-        if (post.comentarios.length > 0) {
+        if (post.comentarios) {
             comentarios(post.comentarios);
         } else {
             document.getElementById("comentarios").innerHTML = "<p class='text-center mt-3'><i>Nenhum comentário...</i></p>";
         }
-        
 
     } catch (erro) {
         (erro.message);

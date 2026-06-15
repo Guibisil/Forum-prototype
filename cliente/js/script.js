@@ -25,7 +25,7 @@ async function posts() {
                     <p><b class="titulo">${post.titulo}</b><i style="font-size:smaller"> - ${post.hora}</i></p>
                 </div>
                 <div>
-                    <p>${post.conteudo}</p>
+                    <p class="quebra">${post.conteudo}</p>
                 </div>
             </article>`;
 
@@ -49,37 +49,3 @@ area_posts.addEventListener('click', (e) => {
         }
     }
 });
-
-
-//funções de teste
-async function json() {
-    const teste_banco = {a:4, b:"damasco"};
-
-    try {
-        const resposta = await fetch('http://127.0.0.1:5000/adicionar-item', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(teste_banco)
-        });
-
-        const resultado = await resposta.json();
-        console.log("Resposta do servidor:", resultado);
-        
-    } catch (erro) {
-        console.error("Erro ao enviar dados:", erro);
-    }
-}
-
-async function teste_get() {
-    try {
-        const resposta = await fetch('http://127.0.0.1:5000/dados');
-        
-        const dados = await resposta.json();
-        
-        console.log(dados);
-    } catch (erro) {
-        console.error("Erro ao buscar dados:", erro);
-    }
-}

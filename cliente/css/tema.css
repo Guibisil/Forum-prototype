@@ -102,3 +102,7 @@ ul {
 #detalhes_user, #deslogar_user {
     cursor: pointer;
 }
+
+.quebra {
+    white-space: pre-wrap;
+}

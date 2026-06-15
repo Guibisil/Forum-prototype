@@ -55,16 +55,51 @@
 <main class="flex-grow-1">
     
     <!--Barra de pesquisa-->
-    <section class="mb-4 container px-5 d-flex align-items-center justify-content-center">
+    <section class="mb-4 container px-3 d-flex align-items-center justify-content-between">
         <div class="input-group mb-3 mt-3" style="max-width: 500px;">
             <input type="text" class="form-control" placeholder="Procurar">
             <button class="btn btn-success" type="button"><img src="./resource/imagens/icons/busca.png" style="height: 24px;"></button>
         </div>
+
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_post" id="criar_post">
+            Criar Post
+        </button>
     </section>
 
     <!--Posts-->
     <section class="container align-items-center mb-5" id="area_posts">
     </section>
+
+    <!--modal-->
+    <div class="modal mt-5" id="modal_post">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title text-black">Post</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="mb-2">
+                        <label for="titulo_post">Título:</label>
+                        <input type="text" class="form-control" id="titulo_post" placeholder="Título...">
+                    </div>
+                    <div>
+                        <label for="corpo">Corpo:</label>
+                        <textarea class="form-control" rows="5" id="corpo" name="text" placeholder="Seu comentário..."></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="enviar_post" onclick="enviar_post()">
+                        Enviar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 </main>
 

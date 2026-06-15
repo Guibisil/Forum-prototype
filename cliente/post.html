@@ -55,20 +55,22 @@
 
     <section class="container px-5 mb-5">
 
+        <!--Post e info do usuário-->
         <article class="row px-2">
             <img class="col-auto p-1" src="./resource/imagens/icons/user.png" style="height: 40px;"/>
             <p class="col-auto d-flex m-0 p-0 align-items-center" id="autor-post"></p>
         </article>
 
         <h2 id="titulo-post" class="mb-3">...</h2>
-        <p id="conteudo-post" class="mb-4">...</p>
+        <p id="conteudo-post" class="mb-4 quebra">...</p>
 
         <article>
-            <button class="btn btn-outline-primary" id="criar_post" data-bs-toggle="modal" data-bs-target="#modal_res">
-                Rsponder
+            <button class="btn btn-outline-primary" id="criar_comen" data-bs-toggle="modal" data-bs-target="#modal_res">
+                Responder
             </button>
         </article>
 
+        <!--espaço para comentários-->
         <article class="cointainer mt-3 px-4 borda py-2" style="border-top: solid 1px;" id="comentarios">
         </article>
     </section>
@@ -78,21 +80,21 @@
         <div class="modal-dialog">
             <div class="modal-content">
 
-            <div class="modal-header">
-                <h4 class="modal-title text-black">Resposta</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
+                <div class="modal-header">
+                    <h4 class="modal-title text-black">Resposta</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
 
-            <div class="modal-body">
-                <label for="comentario">Comentário:</label>
-                <textarea class="form-control" rows="5" id="comentario" name="text" placeholder="Seu comentário..."></textarea>
-            </div>
+                <div class="modal-body">
+                    <label for="comentario">Comentário:</label>
+                    <textarea class="form-control" rows="5" id="comentario" name="text" placeholder="Seu comentário..."></textarea>
+                </div>
 
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="enviar_res" onclick="enviar_resposta()">
-                    Enviar
-                </button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="enviar_res" onclick="enviar_resposta()">
+                        Enviar
+                    </button>
+                </div>
 
             </div>
         </div>
@@ -132,7 +134,7 @@
 
 <script src="js/posts.js"></script>
 <script src="js/tema.js"></script>
-<script src="js/criar_post.js"></script>
+<script src="js/criar_comentario.js"></script>
 
 
 </body>
