@@ -48,6 +48,23 @@ def adicionar_user():
     except Exception as e:
         return jsonify({"erro": f"Erro ao processar: {str(e)}"}), 500
 
+
+@app.route('/dados-usuarios/<int:id_autor>', methods=['GET'])
+def autor_completo(id_autor):
+    if not os.path.exists(JSON_FILE):
+        return jsonify({"erro": "Arquivo não encontrado"}), 404
+
+    with open(JSON_FILE, 'r', encoding='utf-8') as f:
+        dados = json.load(f)
+
+    autor = next((u for u in dados["usuarios"] if u.get("id") == id_autor), None)
+
+    if not autor:
+        return jsonify({"erro": "Autor não encontrado"}), 404
+
+    return jsonify(autor)
+
+
 # Posts
 @app.route('/dados-posts', methods=['GET'])
 def dados_posts():

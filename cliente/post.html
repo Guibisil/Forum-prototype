@@ -53,42 +53,21 @@
 
 <main class="flex-grow-1">
 
-    <section class="container px-5">
+    <section class="container px-5 mb-5">
 
-        <article class="row">
+        <article class="row px-2">
             <img class="col-auto p-1" src="./resource/imagens/icons/user.png" style="height: 40px;"/>
-            <p class="col-auto d-flex m-0 p-0 align-items-center" id="autor-post">Ababa</p>
+            <p class="col-auto d-flex m-0 p-0 align-items-center" id="autor-post"></p>
         </article>
 
-        <h1 id="titulo-post">Título do Post</h1>
-        <p id="conteudo-post">Conteúdo do post será carregado aqui...</p>
+        <h2 id="titulo-post" class="mb-3">...</h2>
+        <p id="conteudo-post" class="mb-4">...</p>
 
         <article>
-            <button class="btn btn-outline-primary">Responder</button>
+            <button class="btn btn-outline-primary" id="criar_post">Responder</button>
         </article>
 
-        <hr class="linha">
-
-        <article class="cointainer mt-2 px-4">
-            
-
-            <div class="px-3">
-                <article class="row px-2">
-                    <img class="col-auto p-1" src="./resource/imagens/icons/user.png" style="height: 35px;"/>
-                    <h6 class="col-auto d-flex m-0 p-0 align-items-center small">Teste123</h6>
-                </article>
-                <p>Comentário de teste</p>
-            </div>
-            <hr class="linha">
-
-            <div class="px-3">
-                <article class="row px-2">
-                    <img class="col-auto p-1" src="./resource/imagens/icons/user.png" style="height: 35px;"/>
-                    <h6 class="col-auto d-flex m-0 p-0 align-items-center small">Teste123</h6>
-                </article>
-                <p>Comentário de teste</p>
-            </div>
-            <hr class="linha">
+        <article class="cointainer mt-3 px-4 borda py-2" style="border-top: solid 1px;" id="comentarios">
         </article>
     </section>
 
@@ -126,6 +105,8 @@
 
 <script src="js/posts.js"></script>
 <script src="js/tema.js"></script>
+<script src="js/criar_post.js"></script>
+
 
 </body>
 </html>
