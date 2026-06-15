@@ -47,8 +47,8 @@
             "autor_id": 2,
             "comentarios": [
                 {
-                    "conteudo": "asdasd",
-                    "autor_nome": null,
+                    "conteudo": "com de teste",
+                    "autor_nome": "usuário_teste2",
                     "id": 1
                 },
                 {

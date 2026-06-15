@@ -57,8 +57,10 @@
     <!--Barra de pesquisa-->
     <section class="mb-4 container px-3 d-flex align-items-center justify-content-between">
         <div class="input-group mb-3 mt-3" style="max-width: 500px;">
-            <input type="text" class="form-control" placeholder="Procurar">
-            <button class="btn btn-success" type="button"><img src="./resource/imagens/icons/busca.png" style="height: 24px;"></button>
+            <input type="text" class="form-control" placeholder="Procurar" id="busca_post">
+            <button class="btn btn-success" type="button" id="btn_busca" disabled>
+                <img src="./resource/imagens/icons/busca.png" style="height: 24px;">
+            </button>
         </div>
 
         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_post" id="criar_post">
