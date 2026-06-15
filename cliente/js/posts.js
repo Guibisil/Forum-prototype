@@ -63,7 +63,7 @@ async function comentarios(p) {
                     <img class="col-auto p-1" src="./resource/imagens/icons/user.png" style="height: 35px;"/>
                     <h6 class="col-auto d-flex m-0 p-0 align-items-center small">${comentario.autor_nome}</h6>
                 </article>
-                <p>${comentario.conteudo}</p>
+                <p class="quebra">${comentario.conteudo}</p>
             </div>`;
 
             comentarios.insertAdjacentHTML('afterbegin', novo_comentario);
