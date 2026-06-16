@@ -2,6 +2,8 @@ from flask import Flask,  request, jsonify
 from flask_cors import CORS
 import json
 import os
+import webbrowser
+from pathlib import Path
 
 app = Flask(__name__)
 JSON_FILE = 'server/banco/banco.json'
@@ -81,6 +83,18 @@ def autor_completo(id_autor):
 
     if not autor:
         return jsonify({"erro": "Autor não encontrado"}), 404
+
+    return jsonify(autor)
+
+@app.route('/dados-login', methods=['GET'])
+def login_usuario():
+    if not os.path.exists(JSON_FILE):
+        return jsonify({"erro": "Arquivo não encontrado"}), 404
+
+    with open(JSON_FILE, 'r', encoding='utf-8') as f:
+        dados = json.load(f)
+
+    autor = dados["usuarios"][-1]
 
     return jsonify(autor)
 
@@ -195,4 +209,16 @@ def adicionar_comentario(id_post):
 
 # start
 if __name__ == "__main__":
+    if os.environ.get("WERKZEUG_RUN_MAIN") == "true":
+        diretorio_do_servidor = os.path.dirname(os.path.abspath(__file__))
+        arquivo_alvo = os.path.normpath(os.path.join(diretorio_do_servidor, "..", "cliente", "index.html"))
+
+        url_do_arquivo = Path(arquivo_alvo).as_uri()
+        caminho_chrome = "C:/Program Files/Google/Chrome/Application/chrome.exe %s"
+
+        try:
+            webbrowser.get(caminho_chrome).open(url_do_arquivo)
+        except Exception:
+            print(Exception) 
+
     app.run(debug=True)

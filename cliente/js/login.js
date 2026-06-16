@@ -54,9 +54,12 @@ async function novo_user(e) {
                 body: JSON.stringify(novo_usuario)
             });
 
+            const resposta_autor = await fetch("http://127.0.0.1:5000/dados-login");
+            const autor = await resposta_autor.json();
+
             sessionStorage.setItem('user', 'logado');
-            sessionStorage.setItem('user_id', u.id);
-            sessionStorage.setItem('user_name', u.nome);
+            sessionStorage.setItem('user_id', autor.id);
+            sessionStorage.setItem('user_name', autor.nome);
             window.location.href = 'index.html';
             
         } catch (erro) {
