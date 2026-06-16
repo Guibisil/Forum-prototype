@@ -4,3 +4,5 @@ Foi utilizado Flask para elaborar uma API local em python, permitindo a persist�
 
 Para rodar o projeto é necessário instalar as biblitecas no requirement.txt, como também inserir o seguinte comando no terminal para iniciar a API:
 python server/main.py
+
+Se o index.html não abrir ao rodar o comando acima, será necessário abrir manualmente a arquivo na pasta cliente.
